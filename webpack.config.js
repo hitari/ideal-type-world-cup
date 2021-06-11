@@ -30,6 +30,7 @@ module.exports = {
     extensions: ['.js'],
     alias: {
       '@': path.resolve(__dirname, 'src/'),
+      '@js': path.resolve(__dirname, 'src/js/'),
     },
   },
   devtool: 'inline-source-map',

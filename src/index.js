@@ -1,11 +1,4 @@
-const renderDOM = {
-  render: (el, id) => {
-    const root = document.getElementById(id);
-    root.appendChild(el);
-  },
-};
+import RenderDOM from './js/lib/RenderDOM';
+import App from './js/App';
 
-const div = document.createElement('div');
-div.textContent = 'Hello World!!!';
-
-renderDOM.render(div, 'root');
+RenderDOM.render(App, 'root');
