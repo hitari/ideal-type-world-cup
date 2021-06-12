@@ -1,5 +1,5 @@
 // element 생성
-const createEl = (name, props) => {
+const createEl = (name, props = {}) => {
   const el = document.createElement(name);
   const isProperty = (key) => key !== 'children';
   Object.keys(props)

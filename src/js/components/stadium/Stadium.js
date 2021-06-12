@@ -1,33 +1,21 @@
 import { createEl } from '@helper/domHelper';
+import IdealItem from './IdealItem';
 
-const template = () => {
-  return `
-    <section class="ideal-stadium">
-      <div class="ideal-zone ideal-left">
-        <button>
-          <div class="img-1"></div>
-        </button>
-      </div>
-      <div>
-        <span>VS</span>
-      </div>
-      <div class="ideal-zone ideal-right">
-        <button>
-          <div class="img-2"></div>
-        </button>
-      </div>
-    </section>`;
-};
-
-const Stadium = () => {
-  const el = createEl('div', { className: 'ideal-stadium' });
-  el.innerHTML = template();
+const Stadium = ({ tournament }) => {
+  const el = createEl('section', { className: 'ideal-stadium' });
+  const div = createEl('div');
+  const span = createEl('span');
+  span.textContent = 'VS';
+  div.appendChild(span);
 
   el.addEventListener('click', () => {
     console.log('click');
   });
 
   return (() => {
+    el.appendChild(IdealItem(tournament[0]));
+    el.appendChild(div);
+    el.appendChild(IdealItem(tournament[1]));
     return el;
   })();
 };
