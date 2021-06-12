@@ -5,15 +5,28 @@ import Stadium from '../components/stadium/Stadium';
 
 const IdealTypePage = () => {
   const dispatch = useDispatch();
-  const { title, tournament } = useSelector((state) => state);
+  const { title, round, tournament, current } = useSelector((state) => state);
   const el = createEl('article', { className: 'ideal-wrap' });
-  console.log('tournament', tournament);
+  const items = tournament.slice(current, current + 2);
 
-  return (() => {
-    el.appendChild(Title({ title }));
-    el.appendChild(Stadium({ tournament }));
-    return el;
-  })();
+  const handleIdleTypeClick = (event, key, item) => {
+    console.log('handleIdleTypeClick', event, key, item);
+
+    if (round === 2) {
+      console.log('결승전');
+      dispatch('finalRoundIdleType', { key });
+    } else if (key >= tournament.length - 2) {
+      console.log('마지막 클릭');
+      dispatch('endOfRoundChoiceIdleType', { key });
+    } else {
+      dispatch('choiceIdleType', { key });
+    }
+  };
+
+  el.appendChild(Title({ title }));
+  el.appendChild(Stadium({ items, current, handleIdleTypeClick }));
+
+  return el;
 };
 
 export default IdealTypePage;

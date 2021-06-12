@@ -1,23 +1,20 @@
 import { createEl } from '@helper/domHelper';
 import IdealItem from './IdealItem';
 
-const Stadium = ({ tournament }) => {
+const Stadium = ({ items, current, handleIdleTypeClick }) => {
   const el = createEl('section', { className: 'ideal-stadium' });
   const div = createEl('div');
   const span = createEl('span');
   span.textContent = 'VS';
   div.appendChild(span);
 
-  el.addEventListener('click', () => {
-    console.log('click');
-  });
+  const [item1, item2] = items;
 
-  return (() => {
-    el.appendChild(IdealItem(tournament[0]));
-    el.appendChild(div);
-    el.appendChild(IdealItem(tournament[1]));
-    return el;
-  })();
+  el.appendChild(IdealItem({ item: item1, key: current, handleIdleTypeClick }));
+  el.appendChild(div);
+  el.appendChild(IdealItem({ item: item2, key: current + 1, handleIdleTypeClick }));
+
+  return el;
 };
 
 export default Stadium;

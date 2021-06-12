@@ -1,16 +1,16 @@
 import { createEl } from '@helper/domHelper';
 
-const IdealItem = (item) => {
+const IdealItem = ({ item, key, handleIdleTypeClick }) => {
   const el = createEl('section', { className: 'ideal-zone' });
   const button = createEl('button', {});
   const img = createEl('img', { src: item.url });
 
   button.appendChild(img);
+  button.addEventListener('click', (event) => handleIdleTypeClick(event, key, item));
+
   el.appendChild(button);
 
-  return (() => {
-    return el;
-  })();
+  return el;
 };
 
 export default IdealItem;
