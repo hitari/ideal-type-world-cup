@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const port = process.env.PORT || 3000;
 
@@ -31,7 +32,10 @@ module.exports = {
     alias: {
       '@': path.resolve(__dirname, 'src/'),
       '@js': path.resolve(__dirname, 'src/js/'),
+      '@lib': path.resolve(__dirname, 'src/js/lib'),
+      '@store': path.resolve(__dirname, 'src/js/store'),
       '@helper': path.resolve(__dirname, 'src/js/helper'),
+      hook: path.resolve(__dirname, 'src/js/hooks'),
     },
   },
   devtool: 'inline-source-map',
@@ -47,6 +51,7 @@ module.exports = {
       favicon: 'public/favicon.ico',
       inject: 'body',
     }),
+    new CopyWebpackPlugin({ patterns: [{ from: 'src/assets/images', to: '../dist/assets/images' }] }),
   ],
   module: {
     rules: [
