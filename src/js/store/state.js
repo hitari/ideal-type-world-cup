@@ -1,0 +1,20 @@
+export default {
+  title: '이상형 월드컵',
+  current: 0,
+  round: 8,
+  tournament: [
+    { url: '../assets/images/후라이드.jpg' },
+    { url: '../assets/images/양념.jpg' },
+    { url: '../assets/images/피자.jpg' },
+    { url: '../assets/images/떡볶이.jpg' },
+    { url: '../assets/images/오일파스타.jpg' },
+    { url: '../assets/images/크림파스타.jpg' },
+    { url: '../assets/images/토마토파스타.jpg' },
+    { url: '../assets/images/로제파스타.jpg' },
+    { url: '../assets/images/샌드위치.jpg' },
+    { url: '../assets/images/감자탕.jpg' },
+    { url: '../assets/images/삼계탕.jpg' },
+    { url: '../assets/images/부대찌개.jpg' },
+  ],
+  items: ['I made this', 'Another thing'],
+};

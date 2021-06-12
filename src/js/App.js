@@ -3,7 +3,7 @@ import './app.css';
 import mainPage from './features/mainPage';
 
 const App = () => {
-  return mainPage();
+  return mainPage;
 };
 
 export default App;
