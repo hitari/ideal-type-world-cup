@@ -1,6 +1,7 @@
+import App from '../App';
 // 초기 선언된 root
 let root;
-
+let component;
 // 초기렌더 함수
 const render = (t, v) => {
   let el;
@@ -15,7 +16,7 @@ const render = (t, v) => {
 
   // 함수면 실행 결과값을 리턴 후 el에 넣어준다
   if (typeof t === 'function') {
-    el = t();
+    el = t()();
     // Node Element면 el 바로 넣어준다
   } else if (t.nodeType === Node.ELEMENT_NODE) {
     el = t;
@@ -23,13 +24,14 @@ const render = (t, v) => {
     throw new TypeError("It's not a String or Element Type");
   }
 
+  component = t;
   root.innerHTML = '';
   root.appendChild(el);
 };
 
 // 업데이터 렌더 함수
-const update = (t) => {
-  render(t, root);
+const update = () => {
+  render(component, root);
 };
 
 export default { render, update };
