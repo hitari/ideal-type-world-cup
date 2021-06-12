@@ -2,10 +2,13 @@ export default {
   setTitle(commit, payload) {
     commit('setTitle', payload);
   },
-  addItem(commit, payload) {
-    commit('addItem', payload);
+  choiceIdleType(commit, payload) {
+    commit('choiceIdleType', payload);
   },
-  clearItem(commit, payload) {
-    commit('clearItem', payload);
+  endOfRoundChoiceIdleType(commit, payload) {
+    commit('endOfRoundChoiceIdleType', payload);
+  },
+  finalRoundIdleType(commit, payload) {
+    commit('finalRoundIdleType', payload);
   },
 };

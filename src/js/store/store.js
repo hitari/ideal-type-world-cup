@@ -28,6 +28,7 @@ const createStore = (params = {}) => {
   });
 
   PubSub.subscribe('stateChange', () => {
+    console.log('stateChange-update');
     RenderDOM.update();
   });
 };
