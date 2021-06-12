@@ -1,6 +1,8 @@
-// 렌더 함수
+// 초기 선언된 root
+let root;
+
+// 초기렌더 함수
 const render = (t, v) => {
-  let root;
   let el;
 
   if (typeof v === 'string') {
@@ -21,7 +23,13 @@ const render = (t, v) => {
     throw new TypeError("It's not a String or Element Type");
   }
 
+  root.innerHTML = '';
   root.appendChild(el);
 };
 
-export default { render };
+// 업데이터 렌더 함수
+const update = (t) => {
+  render(t, root);
+};
+
+export default { render, update };

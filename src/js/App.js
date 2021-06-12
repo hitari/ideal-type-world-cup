@@ -1,7 +1,9 @@
+import 'normalize.css';
+import './app.css';
+import mainPage from './features/mainPage';
+
 const App = () => {
-  const el = document.createElement('div');
-  el.textContent = 'This is App Page.';
-  return el;
+  return mainPage();
 };
 
 export default App;

@@ -31,6 +31,7 @@ module.exports = {
     alias: {
       '@': path.resolve(__dirname, 'src/'),
       '@js': path.resolve(__dirname, 'src/js/'),
+      '@helper': path.resolve(__dirname, 'src/js/helper'),
     },
   },
   devtool: 'inline-source-map',
@@ -64,16 +65,19 @@ module.exports = {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
       },
-      {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules\/(?!(axios))/,
-        use: {
-          loader: 'babel-loader',
-        },
-      },
+      // {
+      //   test: /\.(js)$/,
+      //   exclude: /node_modules\/(?!(axios))/,
+      //   use: {
+      //     loader: 'babel-loader',
+      //   },
+      // },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: 'asset/resource',
+        loader: 'file-loader',
+        options: {
+          name: 'assets/[contenthash].[ext]',
+        },
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
