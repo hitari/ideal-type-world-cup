@@ -2,13 +2,12 @@ import { createEl } from '@helper/domHelper';
 import IdealItem from './IdealItem';
 
 const Stadium = ({ items, current, handleIdleTypeClick }) => {
+  const [item1, item2] = items;
   const el = createEl('section', { className: 'ideal-stadium' });
   const div = createEl('div');
   const span = createEl('span');
   span.textContent = 'VS';
   div.appendChild(span);
-
-  const [item1, item2] = items;
 
   el.appendChild(IdealItem({ item: item1, key: current, handleIdleTypeClick }));
   el.appendChild(div);

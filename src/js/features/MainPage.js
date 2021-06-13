@@ -1,13 +1,13 @@
 import { useDispatch, useSelector } from 'hook';
-import IdealTypePage from './IdealTypePage';
+import WorldCupMatchPage from './WorldCupMatchPage';
 import WorldCupPodiumPage from './WorldCupPodiumPage';
 import WorldCupEntrancePage from './WorldCupEntrancePage';
 
-const mainPage = () => {
+const MainPage = () => {
   const { status } = useSelector((state) => state);
   if (status === 'ready') return WorldCupEntrancePage();
   if (status === 'end') return WorldCupPodiumPage();
-  return IdealTypePage();
+  return WorldCupMatchPage();
 };
 
-export default mainPage;
+export default MainPage;

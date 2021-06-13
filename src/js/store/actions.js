@@ -2,6 +2,9 @@ export default {
   setTitle(commit, payload) {
     commit('setTitle', payload);
   },
+  startWorldCup(commit, payload) {
+    commit('startWorldCup', payload);
+  },
   choiceIdleType(commit, payload) {
     commit('choiceIdleType', payload);
   },

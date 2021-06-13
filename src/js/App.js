@@ -1,9 +1,9 @@
 import 'normalize.css';
 import './app.css';
-import mainPage from './features/mainPage';
+import MainPage from './features/MainPage';
 
 const App = () => {
-  return mainPage;
+  return MainPage;
 };
 
 export default App;

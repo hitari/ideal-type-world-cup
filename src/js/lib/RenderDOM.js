@@ -1,4 +1,3 @@
-import App from '../App';
 // 초기 선언된 root
 let root;
 let component;

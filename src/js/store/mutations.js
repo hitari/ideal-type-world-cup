@@ -4,6 +4,15 @@ export default {
 
     return state;
   },
+  startWorldCup(state, payload) {
+    const { title, round, tournament } = payload;
+    state.tournament = tournament;
+    state.title = title;
+    state.round = round;
+    state.status = 'play';
+
+    return state;
+  },
   choiceIdleType(state, payload) {
     const { key } = payload;
     state.tournament[key].isWinner = true;

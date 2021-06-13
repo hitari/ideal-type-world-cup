@@ -28,7 +28,6 @@ const createStore = (params = {}) => {
   });
 
   PubSub.subscribe('stateChange', () => {
-    console.log('stateChange-update');
     RenderDOM.update();
   });
 };
@@ -40,8 +39,6 @@ const dispatch = (actionKey, payload) => {
 
   status = 'action';
   actions[actionKey](commit, payload);
-
-  console.groupEnd();
 
   return true;
 };
