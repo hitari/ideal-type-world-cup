@@ -1,4 +1,4 @@
-import { shallowCopy } from '../helper/objectHelper';
+import { shallowCopy } from '@helper/objectHelper';
 
 export default {
   setTitle(state, payload) {

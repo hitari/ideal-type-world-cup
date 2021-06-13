@@ -70,13 +70,6 @@ module.exports = {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
       },
-      // {
-      //   test: /\.(js)$/,
-      //   exclude: /node_modules\/(?!(axios))/,
-      //   use: {
-      //     loader: 'babel-loader',
-      //   },
-      // },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         loader: 'file-loader',

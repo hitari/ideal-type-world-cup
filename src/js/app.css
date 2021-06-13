@@ -92,16 +92,6 @@ body {
 .ideal-tree-zone.loser img {
   mix-blend-mode: luminosity;
 }
-.img-1 {
-  width: 100%;
-  height: 100%;
-  background-image: url('../assets/images/후라이드.jpg');
-}
-.img-2 {
-  width: 100%;
-  height: 100%;
-  background-image: url('../assets/images/양념.jpg');
-}
 /* history */
 .ideal-aside {
   background-color: #222;
