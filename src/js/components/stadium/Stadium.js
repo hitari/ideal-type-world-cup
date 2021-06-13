@@ -1,5 +1,5 @@
 import { createEl } from '@helper/domHelper';
-import IdealItem from './IdealItem';
+import IdealItem from '../idealItem/IdealItem';
 
 const Stadium = ({ items, current, handleIdleTypeClick }) => {
   const [item1, item2] = items;

@@ -1,10 +1,14 @@
 import { useDispatch, useSelector } from 'hook';
 import { createEl } from '@helper/domHelper';
+import Title from '../components/title/Title';
+import TournamentTree from '../components/tournamentTree/TournamentTree';
 
 const worldCupPodiumPage = () => {
-  const { status } = useSelector((state) => state);
+  const { title, tournament } = useSelector((state) => state);
   const el = createEl('article', { className: 'ideal-wrap' });
-  el.textContent = '시상식';
+
+  el.appendChild(Title({ title }));
+  el.appendChild(TournamentTree({ tournament }));
 
   return el;
 };

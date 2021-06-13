@@ -3,9 +3,9 @@ import { createEl } from '@helper/domHelper';
 const Home = ({ handleStartClick }) => {
   const el = createEl('section', { className: 'ideal-home' });
   const select = createEl('select');
-  const opt1 = createEl('option', { value: 16, selected: 'selected' });
+  const opt1 = createEl('option', { value: 16 });
   const opt2 = createEl('option', { value: 8 });
-  const opt3 = createEl('option', { value: 4 });
+  const opt3 = createEl('option', { value: 4, selected: 'selected' });
   opt1.text = '16강';
   opt2.text = '8강';
   opt3.text = '4강';
