@@ -20,20 +20,3 @@ const TreeItem = ({ items }) => {
 };
 
 export default TreeItem;
-{
-  /* <div class="ideal-tree-group">
-  <div class="ideal-tree-winner">
-    <div class="img-1"></div>
-  </div>
-</div>
-<div class="ideal-tree-group">
-  <div class="ideal-tree-item">
-    <div class="ideal-tree-zone">
-      <div class="img-1"></div>
-    </div>
-    <div class="ideal-tree-zone">
-      <div class="img-2"></div>
-    </div>
-  </div>
-</div> */
-}

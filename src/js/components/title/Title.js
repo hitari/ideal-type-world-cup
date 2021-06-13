@@ -1,14 +1,7 @@
-import { useDispatch, useSelector } from 'hook';
 import { createEl } from '@helper/domHelper';
 
 const Title = ({ title }) => {
-  const el = createEl('h1', { className: 'ideal-title' });
-  const state = useSelector();
-  el.textContent = title;
-
-  el.addEventListener('click', () => {
-    console.log('state', state);
-  });
+  const el = createEl('h1', { className: 'ideal-title', textContent: title });
 
   return el;
 };

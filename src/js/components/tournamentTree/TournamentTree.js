@@ -7,7 +7,6 @@ const TournamentTree = ({ tournament }) => {
   const el = createEl('section', { className: 'ideal-tree' });
 
   let round = (tournament.length + 1) / 2;
-  console.log('round', round);
   const tournamentTree = [...tournament];
 
   while (round >= 1) {
@@ -24,21 +23,3 @@ const TournamentTree = ({ tournament }) => {
 };
 
 export default TournamentTree;
-
-{
-  /* <div class="ideal-tree-group">
-  <div class="ideal-tree-winner">
-    <div class="img-1"></div>
-  </div>
-</div>
-<div class="ideal-tree-group">
-  <div class="ideal-tree-item">
-    <div class="ideal-tree-zone">
-      <div class="img-1"></div>
-    </div>
-    <div class="ideal-tree-zone">
-      <div class="img-2"></div>
-    </div>
-  </div>
-</div> */
-}

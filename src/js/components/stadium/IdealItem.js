@@ -1,8 +1,8 @@
 import { createEl } from '@helper/domHelper';
 
 const IdealItem = ({ item, key, handleIdleTypeClick }) => {
-  const el = createEl('section', { className: 'ideal-zone' });
-  const button = createEl('button', {});
+  const el = createEl('div', { className: 'ideal-zone' });
+  const button = createEl('button');
   const img = createEl('img', { src: item.url });
 
   button.appendChild(img);

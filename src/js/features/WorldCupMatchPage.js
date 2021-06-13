@@ -13,6 +13,7 @@ const WorldCupMatchPage = () => {
   const items = tournament.slice(current, current + 2);
   const backButton = createEl('button', { className: 'back-button', textContent: '←' });
 
+  // 이상형 클릭 이벤트
   const handleIdleTypeClick = (event, key, item) => {
     if (currentRound === 2) {
       dispatch('finalRoundIdleType', { key, title: `이상형 월드컵 시상식` });
@@ -38,6 +39,7 @@ const WorldCupMatchPage = () => {
     }
   };
 
+  // 뒤로가기 버튼 클릭 이벤트
   const handleHistoryBackClick = (event) => {
     // 현재 위치가 0이면 뒤로 갈수 없음.
     if (current === 0) return;

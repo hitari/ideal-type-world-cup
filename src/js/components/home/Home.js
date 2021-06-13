@@ -10,7 +10,7 @@ const Home = ({ handleStartClick }) => {
   select.add(opt2);
   select.add(opt3);
 
-  const anchor = createEl('a', { href: '#', textContent: '시작하기' });
+  const anchor = createEl('a', { href: '#', className: 'ideal-anchor', textContent: '<시작하기>' });
   anchor.addEventListener('click', (event) => handleStartClick(event, select));
 
   el.appendChild(select);
