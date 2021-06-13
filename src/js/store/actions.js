@@ -14,4 +14,7 @@ export default {
   finalRoundIdleType(commit, payload) {
     commit('finalRoundIdleType', payload);
   },
+  historyBack(commit, payload) {
+    commit('historyBack', payload);
+  },
 };

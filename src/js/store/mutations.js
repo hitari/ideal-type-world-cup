@@ -1,6 +1,4 @@
-import { shuffleArray } from '../helper/filterHelper';
 import { shallowCopy } from '../helper/objectHelper';
-import { pipe } from '../helper/functionHelper';
 
 export default {
   setTitle(state, payload) {
@@ -13,12 +11,20 @@ export default {
     state.tournament = tournament;
     state.title = title;
     state.round = round;
+    state.currentRound = round;
     state.status = 'play';
 
     return state;
   },
   choiceIdleType(state, payload) {
     const { key } = payload;
+    state.snapshot.push({
+      title: state.title,
+      current: state.current,
+      currentRound: state.currentRound,
+      tournament: shallowCopy(state.tournament),
+      winners: shallowCopy(state.winners),
+    });
     state.tournament[key].isWinner = true;
     state.winners.push(state.tournament[key]);
     state.current = state.current + 2;
@@ -26,22 +32,17 @@ export default {
     return state;
   },
   endOfRoundChoiceIdleType(state, payload) {
-    const { key, title } = payload;
+    const { key, title, tournament } = payload;
+    state.snapshot.push({
+      title: state.title,
+      current: state.current,
+      currentRound: state.currentRound,
+      tournament: shallowCopy(state.tournament),
+      winners: shallowCopy(state.winners),
+    });
     state.tournament[key].isWinner = true;
-    state.round = state.round / 2;
-
-    const nextIdleTypes = pipe(
-      (ideleTypes) => shuffleArray(ideleTypes),
-      (ideleTypes) => shallowCopy(ideleTypes),
-      (ideleTypes) =>
-        ideleTypes.map((idele) => {
-          idele.isWinner = false;
-          return idele;
-        }),
-      (ideleTypes) => [...state.tournament, ...ideleTypes]
-    );
-
-    state.tournament = nextIdleTypes([...state.winners, state.tournament[key]]);
+    state.currentRound = state.currentRound / 2;
+    state.tournament = tournament;
     state.winners = [];
     state.title = title;
     state.current = state.current + 2;
@@ -52,11 +53,19 @@ export default {
     const { key, title } = payload;
     state.tournament[key].isWinner = true;
     state.winners = [state.tournament[key]];
-    state.round = state.round / 2;
+    state.currentRound = state.currentRound / 2;
     state.tournament.push(state.tournament[key]);
     state.title = title;
     state.status = 'end';
 
     return state;
+  },
+  historyBack(state, payload) {
+    const history = state.snapshot.pop();
+    state.title = history.title;
+    state.current = history.current;
+    state.currentRound = history.currentRound;
+    state.tournament = history.tournament;
+    state.winners = history.winners;
   },
 };

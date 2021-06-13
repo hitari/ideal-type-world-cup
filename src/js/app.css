@@ -13,11 +13,12 @@ body {
   width: 100%;
   margin-right: 100px;
   margin-bottom: 20%;
+  text-align: center;
 }
 .ideal-title {
+  display: inline-block;
   margin: 0;
-  padding: 30px 0;
-  text-align: center;
+  padding: 30px 20px;
 }
 .ideal-stadium {
   display: flex;
@@ -37,6 +38,10 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
+.ideal-tree {
+  display: flex;
+  flex-direction: column;
+}
 .ideal-zone button {
   background: none;
   border: none;
@@ -48,22 +53,90 @@ body {
   width: 100%;
   height: 100%;
 }
+.ideal-tree-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.ideal-tree-item {
+  display: flex;
+  flex-direction: row;
+  margin: 0 20px;
+  background: white;
+}
+.ideal-tree-zone {
+  width: 80px;
+  height: 80px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.ideal-tree-zone img {
+  width: 100%;
+  height: 100%;
+}
+.ideal-tree-zone.winner {
+  width: 200px;
+  height: 200px;
+}
+.ideal-tree-zone.loser img {
+  mix-blend-mode: luminosity;
+}
 .img-1 {
   width: 100%;
-  height: 500px;
+  height: 100%;
   background-image: url('../assets/images/후라이드.jpg');
 }
 .img-2 {
   width: 100%;
-  height: 500px;
+  height: 100%;
   background-image: url('../assets/images/양념.jpg');
 }
 /* history */
 .ideal-aside {
   background-color: #222;
   width: 100px;
-  height: 100%;
+  height: 50%;
   position: fixed;
-  top: 0;
+  top: 25%;
   right: 0;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.ideal-aside ul {
+  padding: 0;
+}
+.ideal-aside button {
+  background: none;
+  border: none;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+.ideal-aside .ideal-tree-group:hover {
+  border: 2px solid #fff;
+}
+.ideal-aside .ideal-tree-item {
+  margin: 0;
+}
+.ideal-aside .ideal-tree-zone {
+  width: 40px;
+  height: 40px;
+}
+
+/* history scroll */
+.mostly-customized-scrollbar::-webkit-scrollbar {
+  width: 5px;
+  height: 8px;
+  background-color: #aaa; /* or add it to the track */
+}
+
+.mostly-customized-scrollbar::-webkit-scrollbar-thumb {
+  background: #000;
+}
+
+.back-button {
+  width: 40px;
+  height: 40px;
+  vertical-align: super;
 }

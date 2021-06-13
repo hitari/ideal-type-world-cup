@@ -4,7 +4,6 @@ import RenderDOM from '@lib/RenderDOM';
 let actions = {};
 let mutations = {};
 let state = {};
-let status = 'resting';
 
 // 스토어 초기생성
 const createStore = (params = {}) => {
@@ -21,8 +20,6 @@ const createStore = (params = {}) => {
       state[key] = value;
       PubSub.publish('stateChange', state);
 
-      status = 'resting';
-
       return true;
     },
   });
@@ -33,19 +30,13 @@ const createStore = (params = {}) => {
 };
 
 const dispatch = (actionKey, payload) => {
-  if (typeof actions[actionKey] !== 'function') {
-    return false;
-  }
-
-  status = 'action';
+  if (typeof actions[actionKey] !== 'function') return;
   actions[actionKey](commit, payload);
 
   return true;
 };
 
 const commit = (mutationKey, payload) => {
-  status = 'mutation';
-
   let newState = mutations[mutationKey](state, payload);
 
   state = Object.assign(state, newState);
